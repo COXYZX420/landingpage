@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom right, #000000, #fbff25);
+    color: #ffffff;
+  }
+  
+  .container {
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 500px;
+    margin: auto;
+  }
+  .titulo-principal {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #f43f5e, #f97316, #facc15); /* rojo → naranja → amarillo */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .borde-perfil {
+    display: inline-block;
+    padding: 4px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #f43f5e, #f97316, #facc15);
+  }
+  
+  .perfil {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: block;
+  }
+  
+  
+  h1 {
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+  }
+  
+  .descripcion {
+    font-size: 1.1rem;
+    font-weight: 600; /* Negrita moderada */
+    color: #000000;   /* Celeste claro, pero podés usar #ffffff si querés más fuerza */
+    text-shadow: 1px 1px 2px rgba(36, 0, 199, 0.2);
+    margin-bottom: 2rem;
+  }
+  
+  
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  
+  
+  footer {
+      margin-top: 3rem;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #333;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    
+    
+    /* hover mas suaves */
+    .boton {
+      background-color: #ff1212;
+      color: #1e293b;
+      text-decoration: none;
+      padding: 1rem;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+
+  .container {
+    animation: fadeIn 1.2s ease-in;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .boton {
+    transition: transform 0.2s ease, background 0.3s ease;
+  }
+  
+  .boton:hover {
+    transform: scale(1.03);
+    background-color: #ffaf02a9;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+/* Mejorar vistas en celulares */
+  @media (max-width: 480px) {
+    .boton {
+      font-size: 0.9rem;
+      padding: 0.75rem;
+    }
+  
+    .titulo-principal {
+      font-size: 2rem;
+    }
+  
+    .perfil {
+      width: 90px;
+      height: 90px;
+    }
+  }
+  
+  
