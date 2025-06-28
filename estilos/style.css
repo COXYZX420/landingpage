@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom right, #000000, #fbff25);
+    background: linear-gradient(to bottom, #2a2a2a, #0e0e0e);
     color: #ffffff;
   }
   
@@ -46,7 +46,7 @@ body {
   .descripcion {
     font-size: 1.1rem;
     font-weight: 600; /* Negrita moderada */
-    color: #000000;   /* Celeste claro, pero podés usar #ffffff si querés más fuerza */
+    color: #ffffff;   /* Celeste claro, pero podés usar #ffffff si querés más fuerza */
     text-shadow: 1px 1px 2px rgba(36, 0, 199, 0.2);
     margin-bottom: 2rem;
   }
@@ -60,14 +60,18 @@ body {
   
   
   
-  footer {
-      margin-top: 3rem;
-      padding: 1rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #333;
-      background-color: rgba(255, 255, 255, 0.1);
-    }
+  .footerindex {
+    margin-top: 3rem;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #ffffff;
+    background-color: #0e0e0e; /* mismo tono final del body */
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* línea sutil */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.6);
+
+  }
+  
     
     
     
@@ -97,20 +101,9 @@ body {
   
   .boton:hover {
     transform: scale(1.03);
-    background-color: #ffaf02a9;
+    background-color: #fffb00;
   }
   
-
-
-
-
-
-
-
-
-
-
-
 /* Mejorar vistas en celulares */
   @media (max-width: 480px) {
     .boton {
@@ -129,3 +122,308 @@ body {
   }
   
   
+
+
+
+/* Estilos para el documento Landingpage */
+/* Navbar base */
+.navbar {
+  background-color: #1f1f1f;
+  padding: 1rem 2rem; /* agregué padding horizontal para espacio a los lados */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* cambio para que los items comiencen a la izquierda */
+  flex-wrap: wrap;
+}
+
+/* Logo "Volver" */
+.navbar-logo {
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  flex-shrink: 0; /* evita que se achique */
+  margin-right: 240px; /* separa el logo de los links centrales */
+}
+
+.navbar-logo:hover {
+  color: #ef4444;
+}
+
+/* Icono hamburguesa */
+.menu-icon {
+  display: none;
+  font-size: 1.5rem;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Contenedor de links centrales */
+.navbar-centro {
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-start;
+  margin-left: 0; /* removido para evitar conflicto */
+  flex-grow: 1; /* para que ocupe el espacio restante y empuje a la izquierda */
+}
+
+/* Links centrales */
+.navbar-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.navbar-link:hover {
+  color: #ef4444;
+}
+
+/* Ocultar checkbox */
+.menu-toggle {
+  display: none;
+}
+
+/* Responsive para móvil */
+@media screen and (max-width: 768px) {
+  /* Mostrar hamburguesa */
+  .menu-icon {
+    display: block;
+    margin-left: auto; /* para que quede a la derecha */
+  }
+
+  /* Ocultar links centrales inicialmente */
+  .navbar-centro {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-left: 0;
+  }
+
+  /* Mostrar links centrales cuando menú hamburguesa está activo */
+  .menu-toggle:checked + .menu-icon + .navbar-centro {
+    display: flex;
+  }
+
+  /* Links más grandes y con padding para móvil */
+  .navbar-link {
+    font-size: 1.1rem;
+    padding-left: 1rem;
+  }
+}
+
+/* Estilos para desktop */
+@media screen and (min-width: 769px) {
+  /* Ya que navbar usa justify-content:flex-start, navbar-centro ocupa espacio disponible */
+  /* Margin-left queda 0 para evitar superposición */
+  .navbar-centro {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+    margin-left: 0;
+    flex-grow: 1;
+  }
+
+  /* Ocultar menú hamburguesa */
+  .menu-icon {
+    display: none;
+  }
+}
+
+
+
+
+/* Arriba estan los estilos para el header (barra de navegacion) */
+
+.info-landing {
+  background-color: #f3f4f6;
+  padding: 3rem 2rem;
+  color: #1f2937;
+  border-radius: 20px; /* 🔄 Redondea las puntas */
+  margin: 2rem auto;
+  max-width: 800px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* opcional para dar profundidad */
+}
+
+
+.texto-info {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-top: 1rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* arriba estan estilos que agregue para la section que es una landingpage */
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9fafb;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+.contenedor {
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.hero {
+  background: linear-gradient(to right, #facc15, #f97316);
+  padding: 4rem 2rem;
+  color: #1e293b;
+}
+
+.hero-titulo {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitulo {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.boton-hero {
+  background-color: #ef4444;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.boton-hero:hover {
+  background-color: #dc2626;
+}
+
+.beneficios {
+  background-color: #fff;
+  padding: 3rem 2rem;
+}
+
+.seccion-titulo {
+  font-size: 2rem;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.lista-beneficios {
+  list-style: none;
+  font-size: 1.1rem;
+  color: #374151;
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.lista-beneficios li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.precio {
+  background-color: #fae89f;
+  padding: 3rem 2rem;
+}
+
+.precio-texto {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.metodos-pago {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.boton-pago {
+  padding: 1rem;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.boton-pago:hover {
+  transform: scale(1.05);
+}
+
+.boton-pago.mp {
+  background-color: #005EFF;
+}
+
+.boton-pago.paypal {
+  background-color: #003087;
+}
+
+.boton-pago.transferencia {
+  background-color: #16a34a;
+}
+
+.nota {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  color: #6b7280;
+}
+
+.contacto {
+  padding: 3rem 2rem;
+  background-color: #f3f4f6;
+}
+
+.boton-wsp {
+  background-color: #25d366;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 1rem;
+  transition: background 0.3s ease;
+}
+
+.boton-wsp:hover {
+  background-color: #128c7e;
+}
+
+.footer {
+  background-color: #000000;
+  color: #6b7280;
+  padding: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.footerP {
+color: #f3f4f6;  
+} 
