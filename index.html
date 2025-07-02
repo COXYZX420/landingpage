@@ -6,27 +6,107 @@
   <title>Inicio </title>
   <link rel="stylesheet" href="estilos/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+
 
 </head>
-<body>
+<body class="bodyinicio">
   <main class="container">
-      <div class="borde-perfil">
+    <div class="borde-perfil animar">
       <img src="assets/perfil.jpg" alt="Foto de perfil" class="perfil" />
     </div>
-    <h1 class="titulo-principal">@progdeveloper</h1>
-    <p class="descripcion">Explora, crea y comparte tu mejor versión 💡</p>
+
+    <h1 class="titulo-principal">
+      <span class="arroba">@</span><span class="nombre">progdeveloper</span>
+    </h1>
+
+    <p class="descripcion">
+      Obtené tu landing page a un precio único<br>y lista para despegar 🚀
+    </p>
 
     <div class="links">
-      <a href="pages/landingpage.html" class="boton">🛠️ Pack LandingPage + Mantenimiento </a>
-      <a href="#" class="boton">📘 Cursos - herramientas de pestesting</a>
-      <a href="https://www.instagram.com/progdeveloper/" class="boton">🎥 Instagram - Mi contenido</a>
-      <a href="#" class="boton">👤 Quien Soy??</a>
-
+      <div class="boton-wrapper">
+        <a href="pages/landingpage.html" class="boton-link tooltip" data-tooltip="Ver ejemplo de landing page profesional">
+          🛠️ <span>LandingPage</span>
+        </a>
+      </div>
+    
+      <div class="boton-wrapper">
+        <a href="pages/cursos.html" class="boton-link tooltip" data-tooltip="Accedé a cursos gratuitos sobre herramientas de IA">
+          📘 <span>Cursos </span>
+        </a>
+      </div>
+    
+      <div class="boton-wrapper">
+        <a href="https://www.instagram.com/progdeveloper" target="_blank" class="boton-link tooltip" data-tooltip="Mirá todo mi contenido en Instagram">
+          🎥 <span>Instagram </span>
+        </a>
+      </div>
+    
+      <div class="boton-wrapper">
+        <a href="pages/reunion.html" class="boton-link tooltip" data-tooltip="Solicitá una reunión personalizada conmigo">
+          👤 <span>Solicitar Reunión</span>
+        </a>
+      </div>
     </div>
+    
+    
+
+    
+    <div class="box-tema">
+      <button id="toggle-tema" class="boton-tema">🌙 Cambiar tema</button>
+    </div>
+
+
+    <div class="redes-sociales">
+      <a href="https://wa.me/5493388672783" class="icono-wpp" target="_blank" title="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="https://www.instagram.com/progdeveloper" class="icono-ig" target="_blank" title="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+    
+    
   </main>
+
   <footer class="footerindex">
     <p>© 2025 progdeveloper | Todos los derechos reservados</p>
   </footer>
+
+
+
+  <script>
+    const botonTema = document.getElementById("toggle-tema");
+    const body = document.body;
   
+    // Verifica si se guardó preferencia
+    if (localStorage.getItem("tema") === "claro") {
+      body.classList.remove("modo-oscuro");
+      body.classList.add("modo-claro");
+      botonTema.textContent = "🌞 Cambiar tema";
+    }
+  
+    botonTema.addEventListener("click", () => {
+      body.classList.toggle("modo-claro");
+      body.classList.toggle("modo-oscuro");
+  
+      if (body.classList.contains("modo-claro")) {
+        botonTema.textContent = "🌞 Cambiar tema";
+        localStorage.setItem("tema", "claro");
+      } else {
+        botonTema.textContent = "🌙 Cambiar tema";
+        localStorage.setItem("tema", "oscuro");
+      }
+    });
+  </script>
+  
+
+
+
+
 </body>
 </html>
