@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Solicitar Reunión</title>
+  <link rel="stylesheet" href="../estilos/style.css" />
+  <script src="https://www.google.com/recaptcha/api.js?render=6LetTXQrAAAAAAo4GnW1XjUz3o-XfOBM9SA-Im8p"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="../index.html" class="navbar-logo"> Inicio</a>
+  
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">☰</label>
+  
+    <div class="navbar-centro">
+      <a href="landingpage.html" class="navbar-link">🛠️LandingPage</a>
+      <a href="cursos.html" class="navbar-link">📘Cursos - Herramientas</a>
+      <a href="https://www.instagram.com/progdeveloper/" class="navbar-link" target="_blank" rel="noopener noreferrer">💬Instagram</a>
+      <a href="reunion.html" class="navbar-link">👤Solicitar Reunion</a>
+    </div>
+  </nav>
+  <!-- CONTENIDO -->
+  <div class="main-container">
+
+    <!-- Sección Informativa -->
+    <section class="section section-left">
+      <div class="info-box">
+        <h2>¿Por qué agendar una reunión?</h2>
+        <p>Conectá con un profesional que pueda ayudarte a convertir tu idea en un proyecto real.</p>
+        <div class="benefits">
+          <div class="benefit-item"><i>💡</i> Diagnóstico personalizado de tu idea o necesidad</div>
+          <div class="benefit-item"><i>🧩</i> Propuesta de herramientas y soluciones adaptadas</div>
+          <div class="benefit-item"><i>⚡</i> Tiempos y costos estimados con claridad</div>
+          <div class="benefit-item"><i>🚀</i> Planificación de próximos pasos o implementación</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Línea divisoria -->
+    <div class="divider"></div>
+
+    <!-- Sección Formulario -->
+    <section class="section section-right">
+      <div class="form-box">
+        <h2>Solicitá tu reunión</h2>
+        <form id="formulario-reunion" onsubmit="enviarFormulario(event)">
+            <!-- Honeypot: campo invisible para bots -->
+            <input type="text" name="empresa_oculta" id="empresa_oculta" style="display: none !important;" tabindex="-1" autocomplete="off" />
+          
+            <!-- Campos reales -->
+            <input type="text" name="name" placeholder="Tu nombre completo" required />
+            <input type="email" name="email" placeholder="Correo electrónico" required />
+            <input type="text" name="tema" placeholder="¿Sobre qué querés hablar?" />
+            <textarea name="message" rows="4" placeholder="Contanos más sobre lo que necesitas..."></textarea>
+            <input type="hidden" name="time" id="hora-envio" />
+            <button type="submit" id="boton-enviar">Enviar Solicitud</button>
+          </form>
+          
+          
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footerindex">
+    <p>© 2025 progdeveloper | Todos los derechos reservados</p>
+  </footer>
+
+
+
+
+
+
+
+
+
+<!-- SDK EmailJS -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  // 🔐 Claves reales
+  const PUBLIC_KEY = 'c4pkwZGFr_2GEj3fs';
+  const SERVICE_ID = 'service_8eb1ocx';
+  const TEMPLATE_ID = 'template_p27h7b6';
+  const RECAPTCHA_SITE_KEY = '6LetTXQrAAAAAAo4GnW1XjUz3o-XfOBM9SA-Im8p'; // ← reemplazá por tu clave de Google reCAPTCHA v3
+
+  // Inicializar EmailJS
+  emailjs.init(PUBLIC_KEY);
+
+  let envioBloqueado = false;
+
+  function enviarFormulario(e) {
+    e.preventDefault();
+
+    // 🕵️ Validaciones manuales
+    const nombre = e.target.name.value.trim();
+    const email = e.target.email.value.trim();
+    const mensaje = e.target.message.value.trim();
+    const honeypot = document.getElementById("empresa_oculta").value;
+
+    // 1. Campo trampa (honeypot)
+    if (honeypot !== "") {
+      alert("🚫 Detección de bot. El mensaje fue bloqueado.");
+      return;
+    }
+
+    // 2. Validar nombre (mínimo 2 palabras, sin solo "asd")
+    if (!nombre.includes(" ") || nombre.length < 5 || /^[a-z]{2,5}$/i.test(nombre)) {
+      alert("🧑 Por favor ingresá tu nombre completo (nombre y apellido).");
+      return;
+    }
+
+    // 3. Validar email
+    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const blacklistEmails = ['test@test.com', 'asdf@asdf.com', 'example@example.com'];
+    if (!emailValido || blacklistEmails.includes(email.toLowerCase())) {
+      alert("📧 Ingresá un correo electrónico válido.");
+      return;
+    }
+
+    // 4. Validar mensaje (mínimo 15 caracteres)
+    if (mensaje.length < 15) {
+      alert("✏️ Escribí un mensaje un poco más detallado.");
+      return;
+    }
+
+    // 5. Cooldown
+    if (envioBloqueado) {
+      alert("⏳ Esperá unos segundos antes de volver a enviar.");
+      return;
+    }
+
+    // ✅ Ejecutar reCAPTCHA v3
+    grecaptcha.ready(function () {
+      grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' }).then(function (token) {
+        // Insertar token
+        const tokenInput = document.createElement('input');
+        tokenInput.setAttribute('type', 'hidden');
+        tokenInput.setAttribute('name', 'g-recaptcha-response');
+        tokenInput.setAttribute('value', token);
+        e.target.appendChild(tokenInput);
+
+        // Agregar hora al campo oculto
+        const ahora = new Date();
+        const opciones = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+        document.getElementById("hora-envio").value = ahora.toLocaleString('es-AR', opciones);
+
+        // Enviar con EmailJS
+        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target)
+          .then(() => {
+            alert("✅ Tu solicitud fue enviada con éxito. ¡Gracias por contactarnos!");
+            e.target.reset();
+            envioBloqueado = true;
+            document.getElementById("boton-enviar").disabled = true;
+            setTimeout(() => {
+              envioBloqueado = false;
+              document.getElementById("boton-enviar").disabled = false;
+            }, 60000);
+          }, (error) => {
+            alert("❌ Error al enviar. Intentá más tarde.");
+            console.error(error);
+          });
+      });
+    });
+  }
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
