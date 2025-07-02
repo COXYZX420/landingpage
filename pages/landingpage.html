@@ -5,22 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Landing Page Profesional | progdeveloper</title>
   <link rel="stylesheet" href="../estilos/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <link rel="icon" href="../assets/favicon.png" type="image/png">
 
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
-<body>
+<body class="bodylanding">
   <nav class="navbar">
-    <a href="../index.html" class="navbar-logo"> ← ← Volver ← ←</a>
+    <a href="../index.html" class="navbar-logo"> Inicio</a>
   
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
     <label for="menu-toggle" class="menu-icon">☰</label>
   
     <div class="navbar-centro">
-      <a href="landingpage.html" class="navbar-link">LandingPage</a>
-      <a href="#" class="navbar-link">Cursos - Herramientas</a>
-      <a href="https://www.instagram.com/progdeveloper/" class="navbar-link" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="#" class="navbar-link">Quien Soy??</a>
+      <a href="landingpage.html" class="navbar-link">🛠️LandingPage</a>
+      <a href="cursos.html" class="navbar-link">📘Cursos - Herramientas</a>
+      <a href="https://www.instagram.com/progdeveloper/" class="navbar-link" target="_blank" rel="noopener noreferrer">💬Instagram</a>
+      <a href="reunion.html" class="navbar-link">👤Solicitar Reunion</a>
     </div>
   </nav>
   
@@ -51,12 +59,19 @@
   <section class="precio" id="precio">
     <div class="contenedor">
       <h2 class="seccion-titulo">Precio de lanzamiento 🔥</h2>
-      <p class="precio-texto">Desde <strong>$4.999 ARS</strong> o su equivalente en USD</p>
+      <p class="precio-texto">Desde <strong>$17.999 ARS</strong> o su equivalente en USD</p>
+      <p class="nota-legal">
+        * Para otros métodos de pago, contactate directamente vía
+        <a href="https://wa.me/5493388672783" target="_blank">WhatsApp</a> o
+        <a href="mailto:progdevelopertiendaonline@gmail.com?subject=Consulta%20por%20landing%20page&body=Hola%2C%20estoy%20interesado%20en%20una%20landing%20page.%20Quisiera%20más%20información.%0AGracias."
+    target="_blank">email</a>
+      </p>
+      
 
       <div class="metodos-pago">
-        <a href="https://www.mercadopago.com.ar/checkout" target="_blank" class="boton-pago mp">💳 Pagar con Mercado Pago</a>
-        <a href="https://paypal.me/tuusuario" target="_blank" class="boton-pago paypal">💰 Pagar con PayPal</a>
-        <a href="https://wa.me/549XXXXXXXXXX?text=Hola%2C%20quiero%20mi%20landing%20page%20y%20pagar%20por%20transferencia" target="_blank" class="boton-pago transferencia">🏦 Transferencia Bancaria</a>
+        <a href="https://mpago.li/2QefbFs" target="_blank" class="boton-pago mp">💳 Pagar con Mercado Pago</a>
+        <a href="https://paypal.me/progdeveloper/15" target="_blank" class="boton-pago paypal">💰 Pagar con PayPal</a>
+        <a href="https://buy.stripe.com/test_bJe8wOeEc9nu3eQ9q44Ja00" target="_blank" class="boton-pago transferencia">💵 Pagar con Stripe - Mantenimiento</a>
       </div>
 
       <p class="nota">💡 Luego del pago, me contactás por WhatsApp o email para comenzar la personalización.</p>
@@ -80,13 +95,77 @@
     <div class="contenedor">
       <h2 class="seccion-titulo">¿Tenés dudas?</h2>
       <p>Escribime directamente y resolvemos todo en minutos:</p>
-      <a href="https://wa.me/549XXXXXXXXXX" class="boton-wsp" target="_blank">📲 Hablar por WhatsApp</a>
+      
+      <!-- Botón de WhatsApp -->
+      <a href="https://wa.me/5493388672783" class="boton-wsp" target="_blank">📲 Hablar por WhatsApp</a>
+      
+      <!-- Botón de Gmail / Email -->
+      <a href="mailto:progdevelopertiendaonline@gmail.com?subject=Consulta%20por%20landing%20page&body=Hola%2C%20estoy%20interesado%20en%20una%20landing%20page.%20Quisiera%20más%20información.%0AGracias."
+   class="boton-mail" target="_blank">
+  📧 Enviar Email
+</a>
+
     </div>
   </section>
+  <a href="#" class="flecha-arriba" title="Volver arriba">⬆</a>
 
-  <footer class="footer">
-    <p class="footerP">© 2025 progdeveloper | Landing Pages personalizadas | Todos los derechos reservados</p>
+  
+
+  <section class="seccion-testimonios">
+    <h2 class="titulo-testimonios">📣 Opiniones de quienes ya tienen su landing</h2>
+    <div class="grid-testimonios">
+      <div class="card-testimonio">
+        <p class="texto-testimonio">"Mi página quedó espectacular. Ahora puedo compartir todos mis links desde Instagram con un solo botón. ¡Gracias por la rapidez y la calidad!"</p>
+        <p class="autor-testimonio">👩 Sofía M., Emprendedora</p>
+      </div>
+      <div class="card-testimonio">
+        <p class="texto-testimonio">"Tenía dudas, pero la atención fue excelente. Me entregaron mi landing en menos de 72 horas y totalmente personalizada."</p>
+        <p class="autor-testimonio">🧑 Marcos G., Fotógrafo Emprendedor</p>
+      </div>
+      <div class="card-testimonio">
+        <p class="texto-testimonio">"Ahora tengo una presencia online que puedo enviar por WhatsApp automatizado a mis clientes. Profesional y directa. Recomiendo 100%."</p>
+        <p class="autor-testimonio">🧑 Valentino R., Diseñadora UX/UI</p>
+      </div>
+      <div class="card-testimonio">
+        <p class="texto-testimonio">"Uso la landing como catálogo digital para mis productos. Mis clientas la abren desde Instagram y hacen sus pedidos en segundos."</p>
+        <p class="autor-testimonio">👩 Camila S., Emprendedora de cosmética natural</p>
+      </div>
+      
+    </div>
+  </section>
+  
+
+
+
+
+
+
+  <footer class="footerindex">
+    <p>© 2025 progdeveloper | Todos los derechos reservados</p>
   </footer>
+
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const flecha = document.querySelector(".flecha-arriba");
+  
+      window.addEventListener("scroll", () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const windowHeight = window.innerHeight;
+        const docHeight = document.documentElement.scrollHeight;
+  
+        const atBottom = Math.ceil(scrollTop + windowHeight) >= docHeight;
+  
+        if (atBottom) {
+          flecha.classList.add("mostrar");
+        } else {
+          flecha.classList.remove("mostrar");
+        }
+      });
+    });
+  </script>
+  
 
 </body>
 </html>
